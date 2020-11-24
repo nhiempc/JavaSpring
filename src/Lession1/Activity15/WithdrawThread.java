@@ -1,7 +1,5 @@
 package Lession1.Activity15;
 
-import Lession1.Activity15.BankAccount;
-
 public class WithdrawThread extends Thread {
     private Thread t;
     private String threadName;
