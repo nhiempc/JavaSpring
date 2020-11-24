@@ -1,10 +1,12 @@
-package Lession1;
+package Lession1.Activity15;
+
+import Lession1.Activity15.BankAccount;
 
 public class WithdrawThread extends Thread {
     private Thread t;
     private String threadName;
     private long soTienRut;
-    private BankAccount BankAccount;
+    private Lession1.Activity15.BankAccount BankAccount;
     WithdrawThread( String name,BankAccount ba,long widthdrawAmount){
         threadName = name;
         soTienRut = widthdrawAmount;

@@ -1,4 +1,4 @@
-package Lession1;
+package Lession1.Activity15;
 
 public class BankAccount {
     private long amount = 20000000;
