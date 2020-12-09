@@ -19,11 +19,11 @@ public class Thread3 extends Thread {
                     e.printStackTrace();
                 }
                 int max = sharedData.getMax();
-                if(sharedData.getQuantity()>max){
+                System.out.println("Thread 3 is running...");
+                if(sharedData.getQuantity()>=max){
                     max = sharedData.getQuantity();
                     sharedData.setMax(max);
                     sharedData.setNumMax(sharedData.getNum());
-                    System.out.println("Thread 3 is running...");
                 }
                 sharedData.setIndex(1);
             }
