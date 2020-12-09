@@ -2,9 +2,10 @@ package Lession1.Activity16;
 
 public class SharedData {
     int num;
-    int numMax = 0;
+    int numMax;
     int quantity;
     int max = 0;
+    int index = 1 ; //Thread 1, Thread 2, Thread 3
 
     public int getNum() {
         return num;
@@ -44,5 +45,14 @@ public class SharedData {
 
     public synchronized boolean checkAvaiable(){
         return num < 10;
+    }
+
+    public int getIndex() {
+        return index;
+    }
+
+    public SharedData setIndex(int index) {
+        this.index = index;
+        return this;
     }
 }

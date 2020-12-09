@@ -12,7 +12,9 @@ public class Thread2 extends Thread {
             synchronized (sharedData){
                 sharedData.notifyAll();
                 try {
-                    sharedData.wait();
+                    while (sharedData.getIndex()!=2&&sharedData.checkAvaiable()){
+                        sharedData.wait();
+                    }
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -24,8 +26,13 @@ public class Thread2 extends Thread {
                     }
                 }
                 sharedData.setQuantity(dem);
-                System.out.println("T2: Quatity = "+dem);
+                sharedData.setIndex(3);
+                System.out.println("Thread 2: Quatity = "+dem);
             }
         }while (sharedData.checkAvaiable());
+        synchronized (sharedData){
+            System.out.println("Thread 2 was stopped!");
+            //sharedData.notifyAll();
+        }
     }
 }

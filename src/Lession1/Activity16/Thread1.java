@@ -13,14 +13,21 @@ public class Thread1 extends Thread{
             synchronized (sharedData){
                 i+=1;
                 sharedData.setNum(i);
-                System.out.println("T1: Num = "+i);
+                System.out.println("Thread 1: Num = "+i);
+                sharedData.setIndex(2);
                 sharedData.notifyAll();
                 try {
-                    sharedData.wait();
+                    while (sharedData.getIndex()!=1&&sharedData.checkAvaiable()){
+                        sharedData.wait();
+                    }
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
             }
         }while (sharedData.checkAvaiable());
+        synchronized (sharedData){
+            System.out.println("Thread 1 was stopped!");
+            //sharedData.notifyAll();
+        }
     }
 }
